@@ -12,3 +12,8 @@
 - [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
 
 
+## Usage 
+```./gradlw run```
+
+
+![image](https://user-images.githubusercontent.com/59459766/204242297-9265c12d-21c7-4805-b752-d3903f697dbd.png)
