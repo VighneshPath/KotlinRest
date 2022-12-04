@@ -23,7 +23,7 @@ fun process_text(text: String): Map<String, Int>{
                 output.put("unique_words", output.getOrDefault("unique_words", 0) + 1)
                 cur_word = ""
             }
-            if(c == ' '){
+            if(c == ' ' || c == '\t'){
                 output.put("character_count_with_spaces", output.getOrDefault("character_count_with_spaces", 0) + 1)
             }
             else{
