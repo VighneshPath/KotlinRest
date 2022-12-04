@@ -13,6 +13,7 @@ fun process_text(text: String): Map<String, Int>{
     var output = mutableMapOf("word_count" to 0, "character_count_with_spaces" to 0, "character_count_without_spaces" to 0, "line_count" to 0, "unique_words" to 0)
     var unique_words : HashMap<String, Int> = HashMap<String, Int> ()
     var cur_word: String = ""
+    val re = Regex("[^A-Za-z0-9 ]")
     for(c in text){
         if (c == ' ' || c == '\n' || c == '\t'){
             if(!cur_word.equals("")){
@@ -32,7 +33,8 @@ fun process_text(text: String): Map<String, Int>{
         }
         else{
             cur_word += c
-            println(cur_word)
+            cur_word = re.replace(cur_word, "")
+            cur_word = cur_word.toLowerCase()
             output.put("character_count_without_spaces", output.getOrDefault("character_count_without_spaces", 0) + 1)
             output.put("character_count_with_spaces", output.getOrDefault("character_count_with_spaces", 0) + 1)
         }
