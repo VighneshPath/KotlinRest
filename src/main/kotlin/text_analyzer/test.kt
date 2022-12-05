@@ -1,12 +1,12 @@
 package test.micronaut
 
-import io.micronaut.http.MediaType
-import io.micronaut.http.annotation.Controller
-import io.micronaut.http.annotation.Post
-import io.micronaut.http.annotation.Options
-import io.micronaut.http.annotation.Produces
-import io.micronaut.http.annotation.Body
+import io.micronaut.http.HttpHeaders
 import io.micronaut.http.HttpResponse
+import io.micronaut.http.MediaType
+import io.micronaut.http.annotation.Body
+import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Options
+import io.micronaut.http.annotation.Post
 
 data class TextGiven(val content: String)
 
@@ -59,8 +59,8 @@ public class TextAnalyzeController{
         println(data.content)
         return HttpResponse.ok(process_text(data.content))
     }
-	@Options("/analyze", consumes = [MediaType.APPLICATION_JSON])
-	open fun loginOptions(): HttpResponse<*> {
-        return HttpResponse.ok("Done");
+	@Options("/analyze")
+	open fun handlePreflight(headers: HttpHeaders): HttpResponse<*> {
+        return HttpResponse.ok("Preflight Response")
 	}
 }
