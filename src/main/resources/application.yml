@@ -1,6 +1,27 @@
 micronaut:
   application:
     name: text_analyzer
+    server:
+        cors:
+            enabled: true
+            configurations:
+              web:
+                allowedOrigins:
+                  - http://127.0.0.1:5500
+                allowedMethods:
+                  - HEAD
+                  - OPTIONS
+                  - POST
+                  - GET
+                allowedHeaders:
+                  - Content-Type
+                  - Authorization
+                  - X-Api-Version
+                  - X-Site-Name
+                  - X-Site-Secret
+                  - X-Amz-Date
+                  - X-Api-Key
+                  - X-Amz-Security-Token
 netty:
   default:
     allocator:
